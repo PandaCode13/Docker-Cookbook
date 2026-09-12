@@ -1,0 +1,12 @@
+{
+  "name": "cas-01-single-stage",
+  "version": "1.0.0",
+  "description": "Exemple Docker single-stage",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
