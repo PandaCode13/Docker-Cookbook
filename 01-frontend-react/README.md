@@ -11,6 +11,21 @@ Quand ton app tourne **telle quelle**, sans étape de build qui transforme le co
 
 ## Commande pour tester
 
+### Windows (PowerShell)
+
+```powershell
+# Se placer dans le dossier du cas
+cd 01-single-stage
+
+# Builder l'image
+docker build -t cas01-single-stage .
+
+# Lancer le conteneur
+docker run -p 3000:3000 cas01-single-stage
+```
+
+### Linux / Mac
+
 ```bash
 # Se placer dans le dossier du cas
 cd 01-single-stage
@@ -23,6 +38,8 @@ docker run -p 3000:3000 cas01-single-stage
 ```
 
 Puis ouvrir `http://localhost:3000` — tu dois voir le message JSON de bienvenue.
+
+*(Pour ce cas précis, les commandes sont identiques sur les deux OS — la différence Windows/Linux devient surtout visible dès qu'on monte des volumes, ex: cas 23.)*
 
 ## Pièges fréquents
 
