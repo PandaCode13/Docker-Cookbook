@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cas 06 - Multi-processus</title>
+</head>
+<body style="font-family: sans-serif; padding: 2rem;">
+  <h1>Cas 06 — Un conteneur, deux processus</h1>
+  <p>Cette page est servie par <strong>nginx</strong> (processus n°1).</p>
+  <p id="api-result">Chargement de la réponse de l'API...</p>
+
+  <script>
+    fetch('/api/hello')
+      .then(r => r.json())
+      .then(data => {
+        document.getElementById('api-result').textContent =
+          `Réponse de l'API (processus n°2) : ${data.message} (PID ${data.pid})`;
+      })
+      .catch(() => {
+        document.getElementById('api-result').textContent = 'Erreur : API injoignable.';
+      });
+  </script>
+</body>
+</html>
