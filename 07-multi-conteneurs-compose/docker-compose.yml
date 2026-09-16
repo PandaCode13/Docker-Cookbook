@@ -1,0 +1,16 @@
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+
+  backend:
+    build: ./backend
+    # Pas de "ports" exposé vers l'hôte ici : le backend n'a besoin d'être
+    # joignable QUE depuis le frontend, via le réseau interne de Compose.
+    # (Tu peux décommenter la ligne suivante temporairement pour tester
+    # le backend directement depuis ta machine si besoin.)
+    # ports:
+    #   - "3001:3001"
