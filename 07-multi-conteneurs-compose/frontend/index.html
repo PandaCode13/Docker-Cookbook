@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cas 07 - Multi-conteneurs</title>
+</head>
+<body style="font-family: sans-serif; padding: 2rem;">
+  <h1>Cas 07 — Plusieurs conteneurs via docker-compose</h1>
+  <p>Cette page est servie par le <strong>conteneur frontend</strong> (nginx).</p>
+  <p id="api-result">Chargement de la réponse de l'API...</p>
+
+  <script>
+    fetch('/api/hello')
+      .then(r => r.json())
+      .then(data => {
+        document.getElementById('api-result').textContent =
+          `Réponse du conteneur backend : ${data.message} (PID ${data.pid})`;
+      })
+      .catch(() => {
+        document.getElementById('api-result').textContent = 'Erreur : API injoignable.';
+      });
+  </script>
+</body>
+</html>
